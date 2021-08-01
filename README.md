@@ -28,7 +28,7 @@ docker login registry.redhat.io
 ## Building the docker image
 - Clone this repository to your local filesystem.
 - From a shell change directory to the cloned repository directory *dockerfile-unzip-sample*.
-- Change to the for-tar-files branch by issuing the following command -
+- Change to the *for-tar-files* branch by issuing the following command -
 ```
 git checkout for-tar-files
 ```
@@ -44,5 +44,8 @@ docker run --name custom-chasoman-greeting -d -p 8080:8080 custom-chasoman-greet
   - **Note:** The *-p 8080:8080* option maps the local port 8080 onto the container port 8080
 ## Testing the container
 - Point your browser to [http://localhost:8080](http://localhost:8080). You should see the following greeting show up - 
+
+![image](https://user-images.githubusercontent.com/20875397/127770294-694dfec2-5fc8-4eb3-b9ef-ee32dd0dd1f1.png)
+
 ## Summary
 This sample demonstrates a Dockerfile that extracts a *.tar.gz* archive's contents to the image that gets built from it.
