@@ -11,8 +11,8 @@ docker login registry.redhat.io
 - Extends the RedHat Linux Universal Base Image (ubi).
   - **Note:** access to registry.redhat.io required for this step.
 - Installs httpd. The Apache HTTP Server.
-- Extracts and copies the contents of the custom-chasoman-greeting.zip to the /var/www/html/ directory.
-- Inline comments in the Dockerfile are self explanatory
+- Extracts and copies the contents of the *custom-chasoman-greeting.zip* to the /var/www/html/ directory.
+- Inline comments in the Dockerfile are self explanatory.
 ## The archive *custom-chasoman-greeting.zip*
 - Contains a single file *index.html* with the following content -
 ```html
@@ -36,7 +36,7 @@ docker build -t custom-chasoman-greeting-httpd .
 ```
 docker run --name custom-chasoman-greeting -p 8080:8080 custom-chasoman-greeting-httpd
 ```
-  - **Note:** The -p 8080:8080 maps the local port 8080 onto the container port 8080
+  - **Note:** The *-p 8080:8080* option maps the local port 8080 onto the container port 8080
 ## Testing the container
 - Point your browser to [http://localhost](http://localhost). You should see the following greeting show up - 
 
