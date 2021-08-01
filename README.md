@@ -1,5 +1,5 @@
 # dockerfile-unzip-sample
-A sample Dockerfile that demonstrates unzipping the contents of an archive inside the image. 
+A sample Dockerfile that demonstrates the un-taring of contents of a *.tar.gz* archive inside the image. 
 
 **Note:** This sample requires access to the RedHat Container Image Registry - [registry.redhat.io](https://registry.redhat.io) 
 
@@ -11,9 +11,9 @@ docker login registry.redhat.io
 - Extends the RedHat Linux Universal Base Image (ubi).
   - **Note:** access to registry.redhat.io required for this step.
 - Installs httpd. The Apache HTTP Server.
-- Extracts and copies the contents of the *custom-chasoman-greeting.zip* to the /var/www/html/ directory.
+- Extracts and copies the contents of the *custom-chasoman-greeting.tar.gz* to the /var/www/html/ directory.
 - Inline comments in the Dockerfile are self explanatory.
-## The archive *custom-chasoman-greeting.zip*
+## The archive *custom-chasoman-greeting.tar.gz*
 - Contains a single file *index.html* with the following content -
 ```html
 <!DOCTYPE html>
@@ -21,12 +21,17 @@ docker login registry.redhat.io
 <body style="font-family: calibri">
 <h1 style="color: blue">Greetings!</h1>
 <p>Chaitanya Soman says Hello to the World!</p>
+<p>This content was untarred from a tar.gz archive</p>
 </body>
 </html>
 ```
 ## Building the docker image
 - Clone this repository to your local filesystem.
 - From a shell change directory to the cloned repository directory *dockerfile-unzip-sample*.
+- Change to the for-tar-files branch by issuing the following command -
+```
+git checkout for-tar-files
+```
 - Assuming you have docker installed locally, you can issue the following command - 
 ```
 docker build -t custom-chasoman-greeting-httpd .
@@ -39,8 +44,5 @@ docker run --name custom-chasoman-greeting -d -p 8080:8080 custom-chasoman-greet
   - **Note:** The *-p 8080:8080* option maps the local port 8080 onto the container port 8080
 ## Testing the container
 - Point your browser to [http://localhost:8080](http://localhost:8080). You should see the following greeting show up - 
-
-![image](https://user-images.githubusercontent.com/20875397/127763734-33952803-39a3-48c5-818a-66c240201c97.png)
-
 ## Summary
-This sample demonstrates a Dockerfile that extracts a zip archive's contents to the image that gets built from it.
+This sample demonstrates a Dockerfile that extracts a *.tar.gz* archive's contents to the image that gets built from it.

@@ -7,22 +7,19 @@ MAINTAINER chasoman <soman.chaitanya@gmail.com>
 # Define the environment variable PORT having a value 8080
 ENV PORT=8080
 
-# Copy the custom-chasoman-greeting.zip to the temp directory on the image
-COPY custom-chasoman-greeting.zip /tmp/
-
 # Install Apache HTTP Server (httpd)
 RUN yum install -y httpd && \
-    # Install unzip utility
-    yum install -y unzip && \
     yum clean all && \
-    # Unzip the custom-chasoman-greeting.zip to the httpd work path
-    unzip /tmp/custom-chasoman-greeting.zip -d /var/www/html/ && \
     # Modify the httpd.conf replace the TCP 80 port with 8080
     sed -ri -e "/^Listen 80/c\Listen ${PORT}" /etc/httpd/conf/httpd.conf && \
     chown -R apache:apache /etc/httpd/logs/ && \
     chown -R apache:apache /run/httpd/
 
 USER apache
+
+# Copy the custom-chasoman-greeting.tar.gz to the temp directory on the image
+# The ADD command untars the archive and copies the contents to the destination
+ADD custom-chasoman-greeting.tar.gz /var/www/html/
 
 EXPOSE ${PORT}
 
