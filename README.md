@@ -39,6 +39,8 @@ docker run --name custom-chasoman-greeting -p 8080:8080 custom-chasoman-greeting
   - **Note:** The -p 8080:8080 maps the local port 8080 onto the container port 8080
 ## Testing the container
 - Point your browser to [http://localhost](http://localhost). You should see the following greeting show up - 
+
 ![image](https://user-images.githubusercontent.com/20875397/127763734-33952803-39a3-48c5-818a-66c240201c97.png)
+
 ## Summary
 This sample demonstrates a Dockerfile that extracts a zip archive's contents to the image that gets built from it.
