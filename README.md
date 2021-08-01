@@ -34,11 +34,11 @@ docker build -t custom-chasoman-greeting-httpd .
 ## Creating a local container from the image
 - Issue the following command to create a container locally - 
 ```
-docker run --name custom-chasoman-greeting -p 8080:8080 custom-chasoman-greeting-httpd
+docker run --name custom-chasoman-greeting -d -p 8080:8080 custom-chasoman-greeting-httpd
 ```
   - **Note:** The *-p 8080:8080* option maps the local port 8080 onto the container port 8080
 ## Testing the container
-- Point your browser to [http://localhost](http://localhost). You should see the following greeting show up - 
+- Point your browser to [http://localhost:8080](http://localhost:8080). You should see the following greeting show up - 
 
 ![image](https://user-images.githubusercontent.com/20875397/127763734-33952803-39a3-48c5-818a-66c240201c97.png)
 
