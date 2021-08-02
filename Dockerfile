@@ -11,7 +11,7 @@ ENV PORT=8080
 RUN yum install -y httpd && \
     yum clean all && \
     # Modify the httpd.conf replace the TCP 80 port with 8080
-    sed -ri -e "/^Listen 80/c\Listen ${PORT}" /etc/httpd/conf/httpd.conf && \
+    sed -ri -e "/^Listen 80/c\Listen ${PORT}" /etc/httpd/conf/httpd.conf
 
 # Copy the custom-chasoman-greeting.tar.gz to the temp directory on the image
 # The ADD command untars the archive and copies the contents to the destination
